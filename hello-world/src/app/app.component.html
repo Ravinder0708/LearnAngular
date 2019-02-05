@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+    <courses></courses>
+    <app-course></app-course>
+  </h1>
+  
+</div>
+<favourite [isFavourite]="post.isFavourite"></favourite>
+<br>
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked">
+</like>
+<br>
+<directive-mode></directive-mode>
+<br>
+<zippy title="Shipping Details">
+  Shipping Details Content
+</zippy>
+<br>
+<router-outlet></router-outlet>

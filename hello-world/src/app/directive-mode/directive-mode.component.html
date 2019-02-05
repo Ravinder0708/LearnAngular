@@ -1,0 +1,37 @@
+<!-- IF Else -->
+
+
+<!-- Switch Case 
+
+  ul.nav.nav-pills
+(li>a)*2 
+
+-->
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewModeInSwitch==='map'"><a (click)="switchClicked('map')">Map View</a></li>
+  <li [class.active]="viewModeInSwitch==='list'"><a (click)="switchClicked('list')">List View</a></li>
+  <li [class.active]="viewModeInSwitch==='ForLoop'"><a (click)="switchClicked('ForLoop')">For Loop</a></li>
+</ul>
+
+<div [ngSwitch]="viewModeInSwitch">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchCase="'ForLoop'">
+    <button (click)="addDefaultCourse()">Add By Default Courses</button>
+    <button (click)="addCourse()">Add Course</button>
+    <button (click)="removeAll()">Remove All Course</button>
+    <ul>
+      <li *ngFor="let course of courseList; even as isEven; index as IndexVar; trackBy:trackCourse">
+        <span [class.Even]="isEven">
+          Index: {{IndexVar}} --ID: {{course.id}}--- Name: {{course.name}}
+        </span>
+        <button (click)="removeCourse(course.id,course)">Remove Course</button>
+      </li>
+    </ul>
+  </div>
+  <div *ngSwitchDefault>Default Value</div>
+</div>
+
+<div>No. of Courses: {{courseList?.length}}</div>
+<input type="text" appInputDirective="UpperCase"> 

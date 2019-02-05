@@ -11,6 +11,7 @@ import { LikeComponent } from './like/like.component';
 import { DirectiveModeComponent } from './directive-mode/directive-mode.component';
 import { InputDirectiveDirective } from './input-directive.directive';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     LikeComponent,
     DirectiveModeComponent,
     InputDirectiveDirective,
-    ZippyComponent
+    ZippyComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

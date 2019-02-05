@@ -12,6 +12,7 @@
   <li [class.active]="viewModeInSwitch==='map'"><a (click)="switchClicked('map')">Map View</a></li>
   <li [class.active]="viewModeInSwitch==='list'"><a (click)="switchClicked('list')">List View</a></li>
   <li [class.active]="viewModeInSwitch==='ForLoop'"><a (click)="switchClicked('ForLoop')">For Loop</a></li>
+  <li [class.active]="viewModeInSwitch==='contactForm'"><a (click)="switchClicked('contactForm')">Contact Form</a></li>
 </ul>
 
 <div [ngSwitch]="viewModeInSwitch">
@@ -30,6 +31,12 @@
       </li>
     </ul>
   </div>
+  <div *ngSwitchCase="'contactForm'">
+    <contact-form>
+      
+    </contact-form>
+  </div>
+
   <div *ngSwitchDefault>Default Value</div>
 </div>
 

@@ -1,13 +1,56 @@
-<div class="form-group">
-  <label for="firstName">First Name</label>
-  <input id="firstName" type="text" class="form-control">
-</div>
+<form #formVar="ngForm" (ngSubmit)="onSubmission(formVar)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <!-- <input [(ngModel)]="firstName" id="firstName" type="text" class="form-control"> -->
+    <input required minlength="3" maxlength="10" ngModel name="firstName" id="firstName" #firstNameVar="ngModel"
+      (change)="log(firstNameVar)" type="text" class="form-control" autocomplete="off">
+    <div class="alert alert-danger" *ngIf="firstNameVar.touched && ! firstNameVar.valid">
+      <div *ngIf="firstNameVar.errors.required">
+        First Name is Required.
+      </div>
+      <div *ngIf="firstNameVar.errors.minlength">
+        First Name required minimum {{firstNameVar.errors.minlength.requiredLength}} characters.
+      </div>
+    </div>
+  </div>
 
-<div class="form-group">
-  <label for="comment">Comment</label>
-  <textarea name="" id="comment" cols="30" rows="10" class="form-control"></textarea>
-</div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea required name="comment" ngModel id="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
 
-<button type="submit" class="btn btn-primary">
-  Submit
-</button>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribe">Subscribed to Mailing List
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="contactMethod">
+    </label>
+    <!-- we can set 'multiple' attribute in select tag in case to select more than one item 
+    [(ngModel)]="selectedDefault" //This attribute is used to set by default selection of item in dropdown list.
+    -->
+    <select [(ngModel)]="selectedDefault" name="selectedDefault" id="contactMethod" class="form-control">
+      <option *ngFor="let contactListVar of contactList" [value]="contactListVar.id">
+        {{contactListVar.name}}
+      </option>
+    </select>
+
+    selected value is {{selectedDefault}}
+  </div>
+
+  <div *ngFor="let contactRadioVar of contactList" class="radio">
+    <label>
+      <input ngModel type="radio" name="contactMethodRadio" [value]="contactRadioVar.id">
+      {{contactRadioVar.name}}
+    </label>
+  </div>
+
+  <p>
+    {{formVar.value|json}}
+  </p>
+  <button type="submit" class="btn btn-primary" [disabled]="formVar.invalid">
+    Submit
+  </button>
+</form>

@@ -12,6 +12,7 @@
   <li [class.active]="viewModeInSwitch==='map'"><a (click)="switchClicked('map')">Map View</a></li>
   <li [class.active]="viewModeInSwitch==='list'"><a (click)="switchClicked('list')">List View</a></li>
   <li [class.active]="viewModeInSwitch==='ForLoop'"><a (click)="switchClicked('ForLoop')">For Loop</a></li>
+  <li [class.active]="viewModeInSwitch==='zippy'"><a (click)="switchClicked('zippy')">Zippy</a></li>
   <li [class.active]="viewModeInSwitch==='contactForm'"><a (click)="switchClicked('contactForm')">Contact Form</a></li>
 </ul>
 
@@ -31,9 +32,13 @@
       </li>
     </ul>
   </div>
+  <div *ngSwitchCase="'zippy'">
+      <zippy title="Shipping Details">
+          Shipping Details Content.This is ng-Content area.
+        </zippy>
+    </div>
   <div *ngSwitchCase="'contactForm'">
     <contact-form>
-      
     </contact-form>
   </div>
 

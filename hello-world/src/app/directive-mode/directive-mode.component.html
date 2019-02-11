@@ -9,16 +9,12 @@
 -->
 
 <ul class="nav nav-pills">
-  <li [class.active]="viewModeInSwitch==='map'"><a (click)="switchClicked('map')">Map View</a></li>
-  <li [class.active]="viewModeInSwitch==='list'"><a (click)="switchClicked('list')">List View</a></li>
   <li [class.active]="viewModeInSwitch==='ForLoop'"><a (click)="switchClicked('ForLoop')">For Loop</a></li>
   <li [class.active]="viewModeInSwitch==='zippy'"><a (click)="switchClicked('zippy')">Zippy</a></li>
   <li [class.active]="viewModeInSwitch==='contactForm'"><a (click)="switchClicked('contactForm')">Contact Form</a></li>
 </ul>
 
 <div [ngSwitch]="viewModeInSwitch">
-  <div *ngSwitchCase="'map'">Map View Content</div>
-  <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchCase="'ForLoop'">
     <button (click)="addDefaultCourse()">Add By Default Courses</button>
     <button (click)="addCourse()">Add Course</button>
@@ -33,10 +29,10 @@
     </ul>
   </div>
   <div *ngSwitchCase="'zippy'">
-      <zippy title="Shipping Details">
-          Shipping Details Content.This is ng-Content area.
-        </zippy>
-    </div>
+    <zippy title="Shipping Details">
+      Shipping Details Content.This is ng-Content area.
+    </zippy>
+  </div>
   <div *ngSwitchCase="'contactForm'">
     <contact-form>
     </contact-form>
@@ -45,5 +41,17 @@
   <div *ngSwitchDefault>Default Value</div>
 </div>
 
+<ul class="nav nav-pills">
+  <li [class.active]="switchInPractise==='practise7'"><a (click)="switchForPractise('practise7')">Practise7</a></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<div [ngSwitch]="switchInPractise">
+  <div *ngSwitchCase="'practise7'">
+    <practise7></practise7>
+  </div>
+</div>
 <div>No. of Courses: {{courseList?.length}}</div>
-<input type="text" appInputDirective="UpperCase"> 
+<input type="text" appInputDirective="UpperCase">

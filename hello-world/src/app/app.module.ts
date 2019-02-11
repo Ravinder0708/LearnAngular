@@ -13,6 +13,7 @@ import { DirectiveModeComponent } from './directive-mode/directive-mode.componen
 import { InputDirectiveDirective } from './input-directive.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { Practise7Component } from './practise7/practise7.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     DirectiveModeComponent,
     InputDirectiveDirective,
     ZippyComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    Practise7Component
   ],
   imports: [
     BrowserModule,

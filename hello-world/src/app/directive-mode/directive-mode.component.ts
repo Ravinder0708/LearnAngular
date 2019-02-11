@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class DirectiveModeComponent {
 
   viewModeInSwitch = "Else"
+  switchInPractise: string;
+  courseList = [];
 
   switchClicked(value) {
     this.viewModeInSwitch = value;
   }
 
-  courseList =[];
+  switchForPractise(v) {
+    this.switchInPractise = v;
+  }
+
   addDefaultCourse() {
     this.courseList = [
       { id: 1, name: 'Course1 Added' },
